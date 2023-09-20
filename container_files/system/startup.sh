@@ -43,7 +43,7 @@ mkfifo -m 666 /tmp/logidp-consent-audit
 
 
 # fix IdP's logback.xml to log to use above pipe
-IDP_LOG_CFG_FILE=/opt/shibboleth-idp/conf/logback.xml
+IDP_LOG_CFG_FILE=${IDP_SERVICE_LOGGING_RESOURCE:-/opt/shibboleth-idp/conf/logback.xml}
 if test \! -f ${IDP_LOG_CFG_FILE}.dist; then
     cp ${IDP_LOG_CFG_FILE} ${IDP_LOG_CFG_FILE}.dist
 fi
